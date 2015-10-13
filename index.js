@@ -9,7 +9,7 @@ var randomLyric = song.randomize;
 
 function onRequest(request, response) {
 	response.writeHead(200, { "Content-type": "text/plain" });
-	response.send(lyrics[randomLyric()]);
+	//response.send(lyrics[randomLyric()]);
 	response.end();
 }
 
@@ -20,7 +20,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  console.log(req);
+  res.send(req);
   res.send(lyrics[randomLyric()]);
 });
 
