@@ -8,13 +8,7 @@ var lyrics = song.lyrics;
 var randomLyric = song.randomize;
 
 function onRequest(request, response) {
-	response.writeHead(200, { 
-		"Content-type": "text/plain", 
-		"Access-Control-Allow-Origin",
-		"*",
-		"Access-Control-Allow-Headers", 
-		"Origin, X-Requested-With, Content-Type, Accept"
-	});
+	response.writeHead(200, { "Content-type": "text/plain" });
 	response.send(lyrics[randomLyric()]);
 	response.end();
 }
@@ -23,8 +17,10 @@ console.log('test');
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(function(){
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 // views is directory for all template files
