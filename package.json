@@ -1,0 +1,23 @@
+{
+  "name": "delve-detroit-fact-randomizer",
+  "version": "1.0.0",
+  "description": "Delve Detroit Fact Randomizer",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "console.log(\"test\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mcummings1024/Delve-Detroit-Fact-Randomizer.git"
+  },
+  "author": "Matt Cummings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mcummings1024/Delve-Detroit-Fact-Randomizer/issues"
+  },
+  "homepage": "https://github.com/Mcummings1024/Delve-Detroit-Fact-Randomizer#readme"
+}
