@@ -8,7 +8,7 @@ var ninetiesFacts = facts.ninetiesFacts;
 var twentiesFacts = facts.twentiesFacts;
 var sixtiesFacts = facts.sixtiesFacts;
 var presentFacts = facts.presentFacts;
-var randomfact = facts.randomize;
+var randomize = facts.randomize;
 
 function onRequest(request, response) {
 	response.writeHead(200, { "Content-type": "text/plain" });
