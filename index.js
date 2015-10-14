@@ -20,7 +20,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  if(req.params.code === 1890) {
+  if(req.path === "/?code=1890") {
     res.send(ninetiesFacts[randomize(ninetiesFacts)]);
   }
   else if(req.params.code === 1920) {
