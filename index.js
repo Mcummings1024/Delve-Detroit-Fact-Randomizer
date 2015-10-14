@@ -2,18 +2,18 @@ var express = require('express');
 var app = express();
 
 var http = require('http');
-var song = require('./lyrics');
+var facts = require('./detroitFacts');
 
-var lyrics = song.lyrics;
-var randomLyric = song.randomize;
+var ninetiesFacts = facts.ninetiesFacts;
+var twentiesFacts = facts.twentiesFacts;
+var sixtiesFacts = facts.sixtiesFacts;
+var presentFacts = facts.presentFacts;
+var randomfact = facts.randomize;
 
 function onRequest(request, response) {
 	response.writeHead(200, { "Content-type": "text/plain" });
-	//response.send(lyrics[randomLyric()]);
 	response.end();
 }
-
-console.log('test');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -21,24 +21,25 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.log(req.params.code);
-  if(req) {
-    res.send("1890");
+  if(req.params.code === 1890) {
+    res.send(ninetiesFacts[randomize(ninetiesFacts)]);
+  }
+  else if(req.params.code === 1920) {
+    res.send(twentiesFacts[randomize(twentiesFacts)]);
+  }
+  else if(req.params.code === 1960) {
+    res.send(sixtiesFacts[randomize(sixtiesFacts)]);
+  }
+  else if(req.params.code === 2015) {
+    res.send(presentFacts[randomize(presentFacts)]);
   }
   else {
-    res.send(lyrics[randomLyric()]);
+    res.send("error invalid code");
   }
 });
 
-// views is directory for all template files
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
-// app.set('views', __dirname + '/views');
-// app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  console.log('hello there');
+app.get('/', function(request, response) {;
   response.render('pages/index');
-  console.log(lyrics[randomLyric()]);
 });
 
 app.listen(app.get('port'), function() {
