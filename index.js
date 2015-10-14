@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
     res.send(presentFacts[randomize(presentFacts)]);
   }
   else {
-    res.send("error invalid code");
+    res.send(req.query);
   }
 });
 
