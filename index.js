@@ -20,20 +20,20 @@ app.set('port', (process.env.PORT || 5000));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  if(req.query.code === 1890) {
+  if(req.query.code === "1890") {
     res.send(ninetiesFacts[randomize(ninetiesFacts)]);
   }
-  else if(req.query.code === 1920) {
+  else if(req.query.code === "1920") {
     res.send(twentiesFacts[randomize(twentiesFacts)]);
   }
-  else if(req.params.code === 1960) {
+  else if(req.query.code === "1960") {
     res.send(sixtiesFacts[randomize(sixtiesFacts)]);
   }
-  else if(req.params.code === 2015) {
+  else if(req.query.code === "2015") {
     res.send(presentFacts[randomize(presentFacts)]);
   }
   else {
-    res.send(req.query);
+    res.send(req.query.code);
   }
 });
 
