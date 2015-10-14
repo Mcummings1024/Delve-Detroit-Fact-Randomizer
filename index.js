@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.log(req.params.code);
-  if(req.params.code === 1890) {
+  if(req.params.code === "/?code=1890") {
     res.send(ninetiesFacts[randomize(ninetiesFacts)]);
   }
   else if(req.params.code === 1920) {
